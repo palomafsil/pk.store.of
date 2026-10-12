@@ -6,7 +6,7 @@
 
 header {
     background-color: rgb(226, 231, 231);
-    padding: 20px;
+    padding: 15px;
     display: flex;
     gap: 27px;
 }
@@ -22,4 +22,28 @@ header {
 #inicio img {
     width: 150px;
     height: auto;
+}
+
+#banner-principal {
+    font-family:'Times New Roman', Times, serif;
+    background-color: rgb(202, 210, 210);
+    color: #ffffff;
+    padding: 30px;
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.botao {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 20px;
 }
