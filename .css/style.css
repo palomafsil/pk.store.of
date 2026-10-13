@@ -11,7 +11,6 @@ body {
     text-align: center;
 }
 
-/* Header Padronizado */
 header {
     display: flex;
     justify-content: space-between;
@@ -31,7 +30,6 @@ header a {
     font-size: 16px;
 }
 
-/* Carrossel e Banners */
 #carrossel {
     width: 100%;
 }
