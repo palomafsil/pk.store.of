@@ -17,12 +17,27 @@
             </header>
 
         <main>
-            <section id="carrossel">
-                <article class="banner  ativo">
-                <h1>Moda masculina exclusiva!</h1>
-                <p>Estilo e elegância para um homem moderno.</p>
-                <a class="botao" href="pages/roupas.html">Ver roupas</a>
+           <section id="carrossel">
+    <article class="banner ativo">
+        <h1>Moda masculina exclusiva!</h1>
+        <p>Estilo e elegância para um homem moderno.</p>
+        <a class="botao" href="pages/roupas.html">Ver roupas</a>
+    </article>
+
+    <article class="banner">
+        <h1>Produtos para Cabelos Premium</h1>
+        <p>O cuidado ideal para o seu visual todos os dias.</p>
+        <a class="botao" href="pages/cabelos.html">Ver cabelos</a>
+    </article>
+
+    <article class="banner" id="banner-geral">
+                    <h1>Seu estilo do topo aos pés</h1>
+                    <p>Da cabeça às roupas. Encontre tudo o que você precisa na PK Store.</p>
+                    <a class="botao" href="#secao-sobre">Conhecer marca</a>
                 </article>
+
+    <button class="botao-carrossel esquerda" onclick="mudarBanner(-1)">&#10094;</button>
+    <button class="botao-carrossel direita" onclick="mudarBanner(1)">&#10095;</button>
             </section>
 
             <section class="secao-info">
@@ -55,5 +70,16 @@
           <footer>
         <p><small>2026 PK Store. Todos os direitos reservados.</small></p>
     </footer>
+    <script>
+        // Função limpa para controlar os banners através dos botões de seta
+        let indiceAtual = 0;
+        const banners = document.querySelectorAll('.banner');
+
+        function mudarBanner(direcao) {
+            banners[indiceAtual].classList.remove('ativo');
+            indiceAtual = (indiceAtual + direcao + banners.length) % banners.length;
+            banners[indiceAtual].classList.add('ativo');
+        }
+    </script>
     </body>
 </html>

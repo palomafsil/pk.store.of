@@ -30,16 +30,20 @@ header a {
     font-size: 16px;
 }
 
+/* Carrossel e setas de navegação */
 #carrossel {
+    position: relative;
     width: 100%;
+    overflow: hidden;
 }
 
 .banner {
-    display: none; 
+    display: none;
+    width: 100%;
     background-color: #f4f1ea;
     color: #1a1a1a;
     padding: 60px;
-    min-height: 400px;
+    min-height: 350px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -47,6 +51,27 @@ header a {
 
 .banner.ativo {
     display: flex;
+}
+
+.botao-carrossel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    font-size: 35px;
+    color: #1a1a1a;
+    cursor: pointer;
+    padding: 20px;
+    z-index: 10;
+}
+
+.botao-carrossel.esquerda {
+    left: 15px;
+}
+
+.botao-carrossel.direita {
+    right: 15px;
 }
 
 .banner h1 {

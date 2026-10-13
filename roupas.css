@@ -38,8 +38,43 @@ header img {
 }
 
 #carrossel {
-    width: 100%;
+  display: flex;
+  flex-direction: column; 
+  gap: 15px;
 }
+
+#carrossel .banner {
+  flex: 1;
+  height: 300px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+#banner-roupas  { 
+    background-color: #111111; 
+}
+
+#banner-cabelos { 
+    background-color: #2c3e50; 
+}
+
+#banner-geral   { 
+    background-color: #34495e; 
+}
+
+#carrossel .botao {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+}
+
 
 .banner {
     display: none;
@@ -58,6 +93,7 @@ header img {
 }
 
 .banner h1 {
+    color: #1a1a1a;
     font-size: 38px;
     margin-bottom: 15px;
     font-weight: normal;
