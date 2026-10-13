@@ -93,7 +93,7 @@ header a {
     background-color: #f9f9f9;
     border: 1px solid #e5e5e5;
     padding: 30px;
-    width: 280px;
+    width: 300px;
     border-radius: 6px;
 }
 
@@ -112,7 +112,7 @@ header a {
 .secao-sobre {
     padding: 40px;
     max-width: 800px;
-    margin: 0 ;
+    margin: 0;
 }
 
 .secao-sobre h2 {
