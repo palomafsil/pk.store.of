@@ -65,6 +65,7 @@ header a {
     border-radius: 50%;
     width: 45px;
     height: 45px;
+    line-height: 1;
 }
 
 .botao-carrossel.esquerda {
