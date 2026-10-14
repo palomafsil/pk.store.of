@@ -130,6 +130,7 @@ header img {
     border: 1px solid #e5e5e5;
     padding: 30px;
     width: 300px;
+    height: 300px;
     border-radius: 8px;
     text-align: center;
 }
