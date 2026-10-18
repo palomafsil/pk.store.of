@@ -141,7 +141,7 @@ a.cartao-produto {
     color: inherit;
     display: block;
     width: 100%;
-    max-width: 280px; /* Ou a largura máxima dos teus cartões */
+    max-width: 280px; 
 }
 
 .cartao-produto img {
