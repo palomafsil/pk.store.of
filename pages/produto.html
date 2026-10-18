@@ -45,7 +45,6 @@
             document.getElementById('imagem-principal').src = src;
         }
 
-        // Pega os dados passados pelo link do catálogo
         const params = new URLSearchParams(window.location.search);
         const nome = params.get('nome');
         const preco = params.get('preco');
@@ -66,14 +65,12 @@
             document.getElementById('thumb2').src = foto;
         }
 
-       // Lógica para adicionar ao Carrinho (localStorage)
 const btnComprar = document.getElementById('btn-comprar');
 
 if (btnComprar) {
     btnComprar.addEventListener('click', function(e) {
-        e.preventDefault(); // Evita navegar para outra página imediatamente
+        e.preventDefault(); 
 
-        // Cria o objeto do produto com os dados da URL
         const produto = {
             nome: nome || 'Produto',
             preco: preco || '59,90',
@@ -82,7 +79,6 @@ if (btnComprar) {
 
         let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
 
-        // Adiciona o produto
         carrinho.push(produto);
 
         localStorage.setItem('carrinho', JSON.stringify(carrinho));
