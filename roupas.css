@@ -130,7 +130,7 @@ header img {
     border: 1px solid #e5e5e5;
     padding: 20px;
     width: 330px;
-    height: 340px;
+    height: 330px;
     border-radius: 8px;
     text-align: center;
 }
@@ -140,7 +140,7 @@ a.cartao-produto {
     color: inherit;
     display: block;
     width: 100%;
-    max-width: 280px; 
+    max-width: 330px; 
 }
 
 .cartao-produto img {
@@ -173,4 +173,5 @@ a.cartao-produto {
 footer {
     padding: 40px;
     margin-top: 50px;
+    
 }
