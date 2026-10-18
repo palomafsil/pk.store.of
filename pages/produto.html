@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto - PK Store</title>
+    <link rel="stylesheet" href="../.css/produtos.css">
+</head>
+<body>
+
+    <main class="container-produto">
+        <!-- Imagem Principal -->
+        <img id="imagem-principal" src="" alt="Produto">
+
+        <!-- Miniaturas -->
+        <section class="miniaturas">
+            <img id="thumb1" src="" onclick="trocarImagem(this.src)" alt="Miniatura 1">
+            <img id="thumb2" src="" onclick="trocarImagem(this.src)" alt="Miniatura 2">
+        </section>
+
+        <!-- Informações do Produto -->
+        <article class="detalhes-produto">
+            <header>
+                <h1 id="titulo-produto">Nome do Produto</h1>
+                <p class="ref">REF: 102030 | MARCA: PK STORE</p>
+            </header>
+
+            <section class="precos">
+                <span id="preco-antigo" class="preco-antigo">de R$ 89,90</span>
+                <h2 id="preco-atual" class="preco-atual">R$ 59,90</h2>
+                <p class="desconto-pix"><strong id="preco-pix">R$ 56,90</strong> no Pix (5% OFF)</p>
+            </section>
+
+            <!-- Botão de Compra -->
+            <section class="acoes-compra">
+                <a id="btn-comprar" href="#" target="_blank" class="btn-comprar">🛍️ Comprar Agora</a>
+            </section>
+
+            <a href="https://wa.me/55SEUNUMERO" target="_blank" class="btn-duvidas">💬 Dúvidas</a>
+
+            <!-- Informação de Frete -->
+            <section class="calculo-frete">
+                <p class="titulo-frete">🚚 Frete e prazo de entrega</p>
+                <p class="texto-frete">Envio para todo o Brasil. Consulte o valor exato no WhatsApp.</p>
+            </section>
+        </article>
+    </main>
+
+    <script>
+        function trocarImagem(src) {
+            document.getElementById('imagem-principal').src = src;
+        }
+
+        // Pega os dados passados pelo link do catálogo
+        const params = new URLSearchParams(window.location.search);
+        const nome = params.get('nome');
+        const preco = params.get('preco');
+        const foto = params.get('foto');
+
+        if (nome) {
+            document.getElementById('titulo-produto').textContent = nome;
+        }
+        if (preco) {
+            document.getElementById('preco-atual').textContent = `R$ ${preco}`;
+            const valorNum = parseFloat(preco.replace(',', '.'));
+            const pixVal = (valorNum * 0.95).toFixed(2).replace('.', ',');
+            document.getElementById('preco-pix').textContent = `R$ ${pixVal}`;
+        }
+        if (foto) {
+            document.getElementById('imagem-principal').src = foto;
+            document.getElementById('thumb1').src = foto;
+            document.getElementById('thumb2').src = foto;
+        }
+
+        // Atualiza o botão do WhatsApp com o nome e preço corretos
+        const msg = encodeURIComponent(`Olá, quero comprar o ${nome || 'produto'} por R$ ${preco || '59,90'}`);
+        document.getElementById('btn-comprar').href = `https://wa.me/55SEUNUMERO?text=${msg}`;
+    </script>
+</body>
+</html>

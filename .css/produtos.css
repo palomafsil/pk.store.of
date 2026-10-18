@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #111;
+    padding: 20px;
+}
+
+/* Contentor Principal da Página do Produto */
+.container-produto {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* Imagem Principal */
+#imagem-principal {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Miniaturas */
+.miniaturas {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.miniaturas img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+.miniaturas img:hover {
+    border-color: #000;
+}
+
+/* Detalhes do Produto (Direita) */
+.detalhes-produto {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.ref {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.precos {
+    margin-bottom: 25px;
+}
+
+.preco-antigo {
+    color: #888;
+    text-decoration: line-through;
+    font-size: 14px;
+}
+
+.preco-atual {
+    font-size: 26px;
+    font-weight: bold;
+    color: #111;
+    margin: 4px 0;
+}
+
+.desconto-pix {
+    color: #00875a;
+    font-size: 14px;
+}
+
+/* Botões */
+.acoes-compra {
+    margin-bottom: 15px;
+}
+
+.btn-comprar {
+    display: block;
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 14px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background 0.2s;
+}
+
+.btn-comprar:hover {
+    background-color: #333;
+}
+
+.btn-duvidas {
+    display: block;
+    border: 1px solid #ccc;
+    color: #111;
+    text-align: center;
+    padding: 12px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.calculo-frete {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.titulo-frete {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.texto-frete {
+    color: #666;
+    font-size: 13px;
+}

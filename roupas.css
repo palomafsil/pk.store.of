@@ -135,10 +135,29 @@ header img {
     text-align: center;
 }
 
+/* Ajusta o link para não esticar a imagem */
+a.cartao-produto {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    max-width: 280px; /* Ou a largura máxima dos teus cartões */
+}
+
+/* Força a imagem a ficar ajustada dentro do cartão */
 .cartao-produto img {
-    height: 220px;
-    width: 220px;
-    border-radius: 5px;
+    width: 100%;
+    height: 250px; /* Ajusta a altura ideal das tuas fotos */
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+}
+
+.grade-produtos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 .cartao-produto h3 {
