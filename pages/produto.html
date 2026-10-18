@@ -22,7 +22,6 @@
             <h2 id="preco-produto">R$ 0,00</h2>
             <p class="desconto-pix">no Pix (5% OFF)</p>
 
-            <!-- Links em vez de buttons -->
             <a href="#" id="btn-adicionar-carrinho" class="botao-acao">🛒 Adicionar ao carrinho</a>
             <a href="carrinho.html" class="botao-acao secundario">Ir para o Carrinho</a>
 
@@ -32,13 +31,11 @@
     </main>
 
     <script>
-        // Pega os parâmetros da URL
         const params = new URLSearchParams(window.location.search);
         const nome = params.get('nome') || 'Produto sem nome';
         const preco = params.get('preco') || '0,00';
         const foto = params.get('foto') || '';
 
-        // Preenche os dados na tela
         document.getElementById('nome-produto').textContent = nome;
         document.getElementById('preco-produto').textContent = 'R$ ' + preco;
         
@@ -46,7 +43,6 @@
             document.getElementById('imagem-principal').src = foto;
         }
 
-        // Ação de adicionar ao carrinho via localStorage
         document.getElementById('btn-adicionar-carrinho').addEventListener('click', function(e) {
             e.preventDefault();
             const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
