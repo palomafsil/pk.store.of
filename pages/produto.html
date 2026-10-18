@@ -66,9 +66,32 @@
             document.getElementById('thumb2').src = foto;
         }
 
-        // Atualiza o botão do WhatsApp com o nome e preço corretos
-        const msg = encodeURIComponent(`Olá, quero comprar o ${nome || 'produto'} por R$ ${preco || '59,90'}`);
-        document.getElementById('btn-comprar').href = `https://wa.me/55SEUNUMERO?text=${msg}`;
+       // Lógica para adicionar ao Carrinho (localStorage)
+const btnComprar = document.getElementById('btn-comprar');
+
+if (btnComprar) {
+    btnComprar.addEventListener('click', function(e) {
+        e.preventDefault(); // Evita navegar para outra página imediatamente
+
+        // Cria o objeto do produto com os dados da URL
+        const produto = {
+            nome: nome || 'Produto',
+            preco: preco || '59,90',
+            foto: foto || ''
+        };
+
+        // Pega o carrinho atual do navegador ou cria um novo
+        let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+        // Adiciona o produto
+        carrinho.push(produto);
+
+        // Salva de volta no navegador
+        localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+        alert('Produto adicionado ao carrinho!');
+    });
+}
     </script>
 </body>
 </html>
