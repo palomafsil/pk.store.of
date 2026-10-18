@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho - PK Store</title>
+    <link rel="stylesheet" href="../css/roupas.css"> <!-- Podes usar o teu CSS existente -->
+</head>
+<body>
+    <main class="pagina-conteudo">
+        <h2>O teu Carrinho</h2>
+        
+        <!-- Onde os produtos vão aparecer dinamicamente -->
+        <div id="lista-carrinho" class="grade-produtos"></div>
+
+        <div id="acoes-carrinho" style="margin-top: 20px; text-align: center;">
+            <p id="total-carrinho"><strong>Total: R$ 0,00</strong></p>
+            <button id="btn-limpar" style="padding: 10px 20px; cursor: pointer;">Esvaziar Carrinho</button>
+        </div>
+    </main>
+
+    <script>
+        // Função para carregar e exibir os produtos do carrinho
+        function carregarCarrinho() {
+            const container = document.getElementById('lista-carrinho');
+            const totalElemento = document.getElementById('total-carrinho');
+            
+            // Pega o carrinho do localStorage
+            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+
+            container.innerHTML = '';
+
+            if (carrinho.length === 0) {
+                container.innerHTML = '<p>O teu carrinho está vazio.</p>';
+                totalElemento.innerHTML = '<strong>Total: R$ 0,00</strong>';
+                return;
+            }
+
+            let totalGeral = 0;
+
+            // Percorre cada produto guardado e cria o HTML dele
+            carrinho.forEach((produto, index) => {
+                // Converte o preço para número (ex: "69,90" -> 69.90)
+                let precoNumerico = parseFloat(produto.preco.replace(',', '.')) || 0;
+                totalGeral += precoNumerico;
+
+                const cartao = document.createElement('div');
+                cartao.className = 'cartao-produto';
+                cartao.innerHTML = `
+                    <img src="${produto.foto}" alt="${produto.nome}">
+                    <h3>${produto.nome}</h3>
+                    <p>R$ ${produto.preco}</p>
+                    <button onclick="removerItem(${index})" style="background: #ff4d4d; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; margin-top: 8px;">Remover</button>
+                `;
+                container.appendChild(cartao);
+            });
+
+            totalElemento.innerHTML = <strong>Total: R$ ${totalGeral.toFixed(2).replace('.', ',')}</strong>;
+        }
+
+        // Função para remover um item específico do carrinho
+        function removerItem(index) {
+            let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+            carrinho.splice(index, 1); // Remove o item pelo índice
+            localStorage.setItem('carrinho', JSON.stringify(carrinho));
+            carregarCarrinho(); // Atualiza a tela
+        }
+
+        // Botão para limpar tudo
+        document.getElementById('btn-limpar').addEventListener('click', function() {
+            localStorage.removeItem('carrinho');
+            carregarCarrinho();
+        });
+
+        // Carregar o carrinho assim que a página abrir
+        carregarCarrinho();
+    </script>
+</body>
+</html>
