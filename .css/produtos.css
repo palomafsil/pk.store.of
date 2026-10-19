@@ -90,3 +90,44 @@
         grid-template-columns: 1fr;
     }
 }
+
+.btn-voltar {
+  /* Faz o botão ocupar a linha toda sozinho e não empurrar nada pro lado */
+  display: inline-block;
+  
+  /* Margem para não ficar colado nas bordas nem na imagem */
+  margin: 20px 0 20px 10%; 
+  
+  /* Estilo visual limpo */
+  text-decoration: none;
+  color: #333;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 8px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.btn-voltar:hover {
+  background-color: #f0f0f0;
+}
+
+.btn-topo-carrinho {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn-topo-carrinho:hover {
+  background-color: #f5f5f5;
+}
