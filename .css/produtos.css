@@ -92,10 +92,7 @@
 }
 
 .btn-voltar {
-  /* Faz o botão ocupar a linha toda sozinho e não empurrar nada pro lado */
   display: inline-block;
-  
-  /* Margem para não ficar colado nas bordas nem na imagem */
   margin: 20px 0 20px 10%; 
   text-decoration: none;
   color: #333;
