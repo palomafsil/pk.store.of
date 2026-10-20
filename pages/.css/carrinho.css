@@ -105,3 +105,23 @@ main.pagina-conteudo h2 {
 #btn-limpar:hover {
     background-color: #000;
 }
+
+.btn-voltar-inicio {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  margin: 15px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  transition: background-color 0.2s;
+}
+
+.btn-voltar-inicio:hover {
+  background-color: #f0f0f0;
+}
