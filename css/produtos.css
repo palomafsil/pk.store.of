@@ -11,7 +11,6 @@ body {
   padding: 40px 20px;
 }
 
-/* Botão carrinho e voltar */
 .btn-topo-carrinho {
   position: absolute;
   top: 20px;
@@ -33,7 +32,6 @@ body {
   text-decoration: underline;
 }
 
-/* Layout Principal - Lado a Lado Amplo */
 .pagina-produto {
   display: flex;
   flex-direction: row;
@@ -48,7 +46,6 @@ body {
   align-items: center;
 }
 
-/* Container da Imagem Grande */
 .container-imagem {
   flex: 1.2;
   width: 100%;
@@ -63,7 +60,6 @@ body {
   display: block;
 }
 
-/* Lado Direito - Informações */
 .detalhes-produto {
   flex: 1;
   display: flex;
@@ -139,7 +135,6 @@ body {
   background-color: #e5e5ea;
 }
 
-/* Informações de Frete */
 .frete {
   margin-top: 20px;
   font-size: 14px;
