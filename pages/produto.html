@@ -53,11 +53,9 @@
     document.getElementById('imagem-principal').src = foto;
   }
 
-  // Ação de adicionar ao carrinho com notificação criada via JavaScript (sem mexer no HTML)
   document.getElementById('btn-adicionar-carrinho').addEventListener('click', function(e) {
     e.preventDefault();
     
-    // Salva no localStorage
     const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
     carrinho.push({ 
       nome: nome, 
@@ -67,23 +65,20 @@
     });
     localStorage.setItem('carrinho', JSON.stringify(carrinho));
 
-    // Cria a notificação dinamicamente para não precisar de nenhuma <div id="notificacao"> no HTML
     let notificacao = document.createElement('div');
     notificacao.className = 'notificacao-carrinho';
     notificacao.innerHTML = '✓ Produto adicionado ao carrinho!';
     document.body.appendChild(notificacao);
 
-    // Força a animação de entrada
     setTimeout(() => {
       notificacao.classList.add('visivel');
     }, 10);
 
-    // Remove a notificação após 2.5 segundos
     setTimeout(() => {
       notificacao.classList.remove('visivel');
       setTimeout(() => {
         notificacao.remove();
-      }, 300); // espera a transição de fade out terminar
+      }, 300); 
     }, 2500);
   });
 </script>
