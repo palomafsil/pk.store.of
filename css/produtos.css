@@ -154,7 +154,6 @@ body {
   line-height: 1.4;
 }
 
-/* Notificação Flutuante Gerada Dinamicamente */
 .notificacao-carrinho {
   position: fixed;
   bottom: 25px;
