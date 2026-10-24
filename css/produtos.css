@@ -2,113 +2,181 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-  background-color: #f9f9f9;
-  color: #333;
-  padding: 20px;
+  background-color: #f5f5f7;
+  color: #1d1d1f;
+  padding: 40px 20px;
 }
 
-.topo-navegacao {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 900px;
-  margin: 10px auto 20px auto;
-}
-
-.btn-voltar,
+/* Botão carrinho e voltar */
 .btn-topo-carrinho {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 24px;
   text-decoration: none;
-  color: #333;
+}
+
+.btn-voltar {
+  display: inline-block;
+  max-width: 1200px;
+  margin: 0 auto 20px auto;
+  color: #555;
+  text-decoration: none;
   font-size: 14px;
-  font-weight: 500;
-  padding: 8px 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  background-color: #fff;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: background-color 0.2s ease;
 }
 
-.btn-voltar:hover,
-.btn-topo-carrinho:hover {
-  background-color: #f0f0f0;
+.btn-voltar:hover {
+  text-decoration: underline;
 }
 
-.badge-contador {
-  background-color: #e74c3c;
-  color: #fff;
-  font-size: 11px;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 50%;
-}
-
-.container-produtos {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.titulo-pagina {
-  text-align: center;
-  font-size: 26px;
-  font-weight: 600;
-  color: #222;
-  margin-bottom: 30px;
-}
-
-.grid-produtos {
+/* Layout Principal - Lado a Lado Amplo */
+.pagina-produto {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: row;
+  gap: 50px;
+  max-width: 1100px;
+  width: 95%;
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
+  align-items: center;
 }
 
-.card-produto {
-  background-color: #eef1f3;
-  border: 1px solid #e2e2e2;
+/* Container da Imagem Grande */
+.container-imagem {
+  flex: 1.2;
+  width: 100%;
+}
+
+.container-imagem img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
   border-radius: 12px;
-  padding: 16px;
-  width: 250px;
-  text-align: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card-produto:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.card-produto a {
-  text-decoration: none;
-  color: inherit;
   display: block;
 }
 
-.card-produto img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  border-radius: 8px;
-  margin-bottom: 15px;
+/* Lado Direito - Informações */
+.detalhes-produto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.card-produto h3 {
-  font-size: 15px;
-  font-weight: 600;
-  color: #222;
-  margin-top: 5px;
-  margin-bottom: 6px;
+.detalhes-produto h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 8px;
+  line-height: 1.2;
 }
 
-.card-produto .preco {
+.ref {
+  font-size: 12px;
+  color: #86868b;
+  margin-bottom: 24px;
+}
+
+.preco-antigo {
+  font-size: 14px;
+  color: #86868b;
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+
+.detalhes-produto h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1d1d1f;
+  margin-bottom: 4px;
+}
+
+.desconto-pix {
   font-size: 13px;
-  color: #666;
-  font-weight: 500;
-  margin: 0;
+  color: #2e7d32;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+/* Botões */
+.botao-acao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 16px;
+  background-color: #1d1d1f;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.botao-acao:hover {
+  background-color: #333336;
+}
+
+.botao-acao.secundario {
+  background-color: #f2f2f7;
+  color: #1d1d1f;
+}
+
+.botao-acao.secundario:hover {
+  background-color: #e5e5ea;
+}
+
+/* Informações de Frete */
+.frete {
+  margin-top: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d1d1f;
+}
+
+.obs-frete {
+  font-size: 12px;
+  color: #86868b;
+  margin-top: 4px;
+  line-height: 1.4;
+}
+
+/* Notificação Flutuante Gerada Dinamicamente */
+.notificacao-carrinho {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #2e7d32;
+  color: #ffffff;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.notificacao-carrinho.visivel {
+  opacity: 1;
+  transform: translateY(0);
 }

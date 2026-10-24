@@ -1,57 +1,91 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Detalhes do Produto - PK Store</title>
-    <link rel="stylesheet" href="../.css/produtos.css">
+  <meta charset="UTF-8">
+  <title>Detalhes do Produto - PK Store</title>
+  <link rel="stylesheet" href="../css/produtos.css">
 </head>
 <body>
 
-      <a href="carrinho.html" class="btn-topo-carrinho">🛒</a>
+  <a href="carrinho.html" class="btn-topo-carrinho">🛒</a>
+  <a href="roupas.html" class="btn-voltar">&larr; Voltar para as roupas</a>
 
-         <a href="roupas.html" class="btn-voltar">&larr; Voltar para as roupas</a>
-         
-    <main class="pagina-produto">
-        <figure class="container-imagem">
-            <img id="imagem-principal" src="" alt="Produto">
-        </figure>
+  <main class="pagina-produto">
+    <figure class="container-imagem">
+      <img id="imagem-principal" src="" alt="Produto">
+    </figure>
 
-        <article class="detalhes-produto">
-            <h1 id="nome-produto">Nome do Produto</h1>
-            <p class="ref">REF: 102030 | MARCA: PK STORE</p>
-            <p class="preco-antigo">de R$ 89,90</p>
-            <h2 id="preco-produto">R$ 0,00</h2>
-            <p class="desconto-pix">no Pix (5% OFF)</p>
+    <article class="detalhes-produto">
+      <h1 id="nome-produto">Nome do Produto</h1>
+      <p class="ref">REF: 102030 | MARCA: PK STORE</p>
+      
+      <p class="preco-antigo" id="container-preco-antigo">de <span id="preco-antigo">R$ 89,90</span></p>
+      
+      <h2 id="preco-produto">R$ 0,00</h2>
+      <p class="desconto-pix">no Pix (5% OFF)</p>
 
-            <a href="#" id="btn-adicionar-carrinho" class="botao-acao">🛒 Adicionar ao carrinho</a>
-            <a href="carrinho.html" class="botao-acao secundario">Ir para o Carrinho</a>
+      <a href="#" id="btn-adicionar-carrinho" class="botao-acao">🛒 Adicionar ao carrinho</a>
+      <a href="carrinho.html" class="botao-acao secundario">Ir para o Carrinho</a>
 
-            <p class="frete">🚚 Frete e prazo de entrega</p>
-            <p class="obs-frete">Envio para todo o Brasil. Consulte o valor exato no WhatsApp.</p>
-        </article>
-    </main>
+      <p class="frete">🚚 Frete e prazo de entrega</p>
+      <p class="obs-frete">Envio para todo o Brasil. Consulte o valor exato no WhatsApp.</p>
+    </article>
+  </main>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const nome = params.get('nome') || 'Produto sem nome';
-        const preco = params.get('preco') || '0,00';
-        const foto = params.get('foto') || '';
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const nome = params.get('nome') || 'Produto sem nome';
+  const preco = params.get('preco') || '0,00';
+  const precoAntigo = params.get('precoAntigo') || '';
+  const foto = params.get('foto') || '';
 
-        document.getElementById('nome-produto').textContent = nome;
-        document.getElementById('preco-produto').textContent = 'R$ ' + preco;
-        
-        if (foto) {
-            document.getElementById('imagem-principal').src = foto;
-        }
+  document.getElementById('nome-produto').textContent = nome;
+  document.getElementById('preco-produto').textContent = 'R$ ' + preco;
 
-        document.getElementById('btn-adicionar-carrinho').addEventListener('click', function(e) {
-            e.preventDefault();
-            const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-            carrinho.push({ nome: nome, preco: preco, foto: foto });
-            localStorage.setItem('carrinho', JSON.stringify(carrinho));
-            alert('Produto adicionado ao carrinho com sucesso!');
-        });
-    </script>
+  if (precoAntigo) {
+    document.getElementById('preco-antigo').textContent = 'R$ ' + precoAntigo;
+    document.getElementById('container-preco-antigo').style.display = 'block';
+  } else {
+    document.getElementById('container-preco-antigo').style.display = 'none';
+  }
 
+  if (foto) {
+    document.getElementById('imagem-principal').src = foto;
+  }
+
+  // Ação de adicionar ao carrinho com notificação criada via JavaScript (sem mexer no HTML)
+  document.getElementById('btn-adicionar-carrinho').addEventListener('click', function(e) {
+    e.preventDefault();
+    
+    // Salva no localStorage
+    const carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    carrinho.push({ 
+      nome: nome, 
+      preco: preco, 
+      precoAntigo: precoAntigo, 
+      foto: foto 
+    });
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    // Cria a notificação dinamicamente para não precisar de nenhuma <div id="notificacao"> no HTML
+    let notificacao = document.createElement('div');
+    notificacao.className = 'notificacao-carrinho';
+    notificacao.innerHTML = '✓ Produto adicionado ao carrinho!';
+    document.body.appendChild(notificacao);
+
+    // Força a animação de entrada
+    setTimeout(() => {
+      notificacao.classList.add('visivel');
+    }, 10);
+
+    // Remove a notificação após 2.5 segundos
+    setTimeout(() => {
+      notificacao.classList.remove('visivel');
+      setTimeout(() => {
+        notificacao.remove();
+      }, 300); // espera a transição de fade out terminar
+    }, 2500);
+  });
+</script>
 </body>
 </html>
